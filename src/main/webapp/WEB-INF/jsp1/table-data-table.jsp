@@ -372,6 +372,8 @@
                     },
                     'click #btn_delete': function (e, value, row, index) {
                         if (confirm("确定删除吗")) {
+
+
                             location.href = "deleteUser?id="+row.id;
                         }
                     }
