@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hpp.admin.dao.UserDao">
+
+    <!--查询总数-->
+    <select id="selectCount" resultType="Long" parameterType="com.alibaba.fastjson.JSONObject">
+        select  count(*) from  users
+        <where>
+            <if test="search!=null and search!=''">
+                uname like  "%${search}%"
+            </if>
+        </where>
+    </select>
+
+    <!--查询所有及模糊搜索-->
+    <select id="selectByLimitAndSearch" parameterType="com.alibaba.fastjson.JSONObject" resultType="User">
+        select id,uname,sex,age,tellphone from users
+        <where>
+            <if test="search != null and search != ''">
+                uname like "%${search}%"
+            </if>
+        </where>
+        order by ${sort} ${order} limit #{offset},#{limit}
+    </select>
+    <!-- 新增用户-->
+    <insert id="saveUser" parameterType="User"  >
+        insert into users(id,uname,sex,age,tellphone) values(#{id},#{uname},#{sex},#{age},#{tellphone})
+      </insert>
+
+    <!-- 修改用户-->
+    <update id="updateUser" parameterType="User" >
+        update users set uname=#{uname},sex=#{sex},age=#{age},tellphone=#{tellphone} where id=#{id}
+      </update>
+
+    <!-- 删除用户 -->
+    <delete id="deleteUser" parameterType="int">
+          delete from users where id=#{id}
+      </delete>
+
+
+</mapper>
