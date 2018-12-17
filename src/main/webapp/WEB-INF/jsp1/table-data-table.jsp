@@ -84,8 +84,9 @@
                         </div>
                         <div class="form-group">
                             <label for="atellphone" class="col-sm-4 control-label">手机号</label>
-                            <div class="col-sm-12">
-                                <textarea id="atellphone" name="tellphone" class="form-control"></textarea>
+
+                            <div class = "col-sm-12">
+                                <input type = "text" id="atellphone" name="tellphone" class = "form-control"/>
                             </div>
                         </div>
                     </div>
@@ -129,8 +130,9 @@
                         </div>
                         <div class="form-group">
                             <label for="atellphone" class="col-sm-4 control-label">手机号</label>
-                            <div class="col-sm-12">
-                                <textarea id="mtellphone" name="tellphone" class="form-control"></textarea>
+
+                            <div class = "col-sm-12">
+                                <input type = "text" id="mtellphone" name="tellphone" class = "form-control"/>
                             </div>
                         </div>
                     </div>
@@ -286,7 +288,7 @@
             <ul class="treeview-menu">
                 <li><a class="treeview-item" href="blank-page"><i class="icon fa fa-circle-o"></i> Blank Page</a></li>
                 <li><a class="treeview-item" href="page-login"><i class="icon fa fa-circle-o"></i> Login Page</a></li>
-                <li><a class="treeview-item" href="page-lockscreen"><i class="icon fa fa-circle-o"></i> Lockscreen Page</a>
+                <li><a class="treeview-item" hr ef="page-lockscreen"><i class="icon fa fa-circle-o"></i> Lockscreen Page</a>
                 </li>
                 <li><a class="treeview-item" href="page-user"><i class="icon fa fa-circle-o"></i> User Page</a></li>
                 <li><a class="treeview-item" href="page-invoice"><i class="icon fa fa-circle-o"></i> Invoice Page</a>
@@ -321,7 +323,7 @@
         cache: false, // 设置为 false 禁用 AJAX 数据缓存， 默认为true
         striped: true,  //表格显示条纹，默认为false
         pagination: true, // 在表格底部显示分页组件，默认false
-        pageList: [5, 10, 20], // 设置页面可以显示的数据条数
+        pageList: [4,5,10], // 设置页面可以显示的数据条数
         pageSize: 5, // 页面数据条数
         pageNumber: 1, // 首页页码
         sidePagination: 'server', // 设置为服务器端分页
@@ -338,10 +340,15 @@
                 checkbox: true, // 显示一个勾选框
                 align: 'center' // 居中显示
             }, {
-                field: 'uname', // 返回json数据中的uname
-                title: '用户名', // 表格表头显示文字
+                field: 'id', // 返回json数据中的uname
+                title: '用户编号', // 表格表头显示文字
                 align: 'center', // 左右居中
                 valign: 'middle' // 上下居中
+            }, {
+                field: 'uname',
+                title: '用户昵称',
+                align: 'center',
+                valign: 'middle'
             }, {
                 field: 'sex',
                 title: '性别',
@@ -350,11 +357,6 @@
             }, {
                 field: 'age',
                 title: '年龄',
-                align: 'center',
-                valign: 'middle'
-            }, {
-                field: 'tellphone',
-                title: '手机号',
                 align: 'center',
                 valign: 'middle',
             }, {

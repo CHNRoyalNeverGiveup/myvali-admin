@@ -32,7 +32,7 @@ public class UserController {
     @ResponseBody
     @RequestMapping(value = "/allUser",method = RequestMethod.POST,produces = "application/json;charset=UTF-8")
     public JSONObject allUser(@RequestBody JSONObject jsonObject){
-        //System.out.println(jsonObject);
+           // System.out.println(ser.UserList(jsonObject));
             return  ser.UserList(jsonObject);
     }
 

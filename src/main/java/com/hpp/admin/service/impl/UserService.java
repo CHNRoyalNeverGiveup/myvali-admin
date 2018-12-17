@@ -1,7 +1,6 @@
 package com.hpp.admin.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonObjectFormatVisitor;
 import com.hpp.admin.model.User;
 import com.hpp.admin.dao.UserDao;
 import com.hpp.admin.service.IUserService;
@@ -25,7 +24,7 @@ public class UserService implements IUserService {
     public JSONObject UserList(JSONObject jsonObject) {
         long count = dao.selectCount(jsonObject);
         List<User> users = dao.selectByLimitAndSearch(jsonObject);
-        jsonObject.put("total",count);
+       jsonObject.put("total",count);
         jsonObject.put("rows",users);
         return jsonObject;
     }
